@@ -1,535 +1,262 @@
-/* Base */
-* {
-    box-sizing: border-box;
-}
-
-#home h1 {
-    margin-bottom: 100px;
-    text-align: center;
-}
-
-#home img {
-    margin-top: 100px;  /* 圖片與上方元素間距 */
-}
-
-body {
-    margin: 0;
-    font-family: 'Cinzel', serif;
-    background: #0b0b0e;
-    /* deep night */
-    color: #e4d9c7;
-    overflow-x: hidden;
-}
-
-.center {
-    display: block;
-    margin-left: auto;
-    margin-right: auto;
-}
-/*研究主題*/
-.research-title {
-    font-size: 22px;
-    font-weight: bold;
-}
-
-.container {
-    max-width: 1100px;
-    margin: 0 auto;
-    padding: 1.5rem 1.25rem;
-}
-
-#research li {
-    margin-bottom: 50px;   /* 每個研究項目與下一個之間的距離 */
-}
-
-#research h2 {
-  font-size: clamp(20px, 2.4vw, 32px);
-}
-
-#research p {
-    font-size: clamp(16px, 1.3vw, 19px);
-    line-height: 1.8;
-}
-
-
-/* Star canvas behind everything */
-#stars {
-    position: fixed;
-    inset: 0;
-    width: 100%;
-    height: 100%;
-    z-index: -1;
-}
-
-/* Navbar */
-.navbar {
-    background: rgba(45, 38, 31, 0.92);
-    backdrop-filter: blur(2px);
-    padding: 0.75rem 0;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.55);
-    position: sticky;
-    top: 0;
-    z-index: 20;
-    animation: slideDown 0.6s ease both;
-}
-
-.nav-container {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-}
-
-.logo {
-    font-size: 1.4rem;
-    font-weight: 900;
-    color: #f4e3c1;
-    letter-spacing: 0.5px;
-    transition: transform .25s ease;
-}
-
-.logo:hover {
-    transform: scale(1.05);
-}
-
-.menu-toggle {
-    display: none;
-    font-size: 1.6rem;
-    background: none;
-    border: none;
-    color: #f4e3c1;
-    cursor: pointer;
-}
-
-.nav-links {
-    list-style: none;
-    display: flex;
-    gap: 1.25rem;
-    margin: 0;
-    padding: 0;
-}
-
-.nav-links li {
-    cursor: pointer;
-    transition: color .25s ease, transform .25s ease;
-}
-
-.nav-links li:hover {
-    color: #c9a86a;
-    transform: translateY(-1px);
-}
-
-/* People page */
-.profile {
-    display: grid;
-    grid-template-columns: 140px 1fr;
-    gap: 1rem;
-    align-items: start;
-    background: #2d261f;
-    border-radius: 14px;
-    padding: 1rem;
-    box-shadow: 0 8px 18px rgba(0, 0, 0, .55);
-    margin-bottom: 1rem;
-}
-
-.avatar {
-    width: 140px;
-    height: 140px;
-    border-radius: 16px;
-    object-fit: cover;
-    background: rgba(255, 255, 255, .06);
-    border: 1px solid rgba(201, 168, 106, .35);
-}
-
-.profile-body .prof-name {
-    margin: 0;
-    font-size: 1.6rem;
-}
-
-.profile-body .prof-title {
-    margin: .1rem 0 .6rem;
-    color: #c9a86a;
-}
-
-.contact-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-    gap: .4rem .8rem;
-}
-
-.chips {
-    display: flex;
-    flex-wrap: wrap;
-    gap: .5rem;
-    margin-top: .6rem;
-}
-
-.chip {
-    background: rgba(201, 168, 106, .12);
-    border: 1px solid rgba(201, 168, 106, .35);
-    padding: .22rem .6rem;
-    border-radius: 999px;
-    font-size: .9rem;
-}
-
-/* Collapsible sections */
-.sections details {
-    background: rgba(255, 255, 255, .03);
-    border: 1px solid rgba(201, 168, 106, .3);
-    border-radius: 12px;
-    padding: .6rem .9rem;
-    margin-bottom: .7rem;
-}
-
-.sections summary {
-    cursor: pointer;
-    font-weight: 700;
-    color: #f4e3c1;
-}
-
-.clean-list {
-    list-style: none;
-    margin: .4rem 0 0;
-    padding: 0;
-}
-
-.clean-list li {
-    padding: .25rem 0;
-}
-
-.pub-list {
-    margin: .4rem 0 0 1.2rem;
-}
-
-/* Students */
-.students h3 {
-    margin-top: 1rem;
-}
-
-.grid.two-col {
-    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-}
-
-.bullets {
-    list-style: disc;
-    margin-left: 1.2rem;
-}
-
-@media (max-width: 640px) {
-    .profile {
-        grid-template-columns: 1fr;
-    }
-
-    .avatar {
-        width: 120px;
-        height: 120px;
-    }
-}
-
-/* People page link style */
-#people a {
-    color: #c9a86a;
-    /* 改成你想要的顏色，例如金色 */
-    text-decoration: none;
-    /* 移除底線 */
-}
-
-#people a:hover {
-    color: #f4e3c1;
-    /* 滑鼠移過去時的顏色 */
-    text-decoration: underline;
-}
-
-@keyframes slideDown {
-    from {
-        transform: translateY(-100%);
-        opacity: 0;
-    }
-
-    to {
-        transform: translateY(0);
-        opacity: 1;
-    }
-}
-
-/* Pages & animations */
-.page {
-    opacity: 0;
-    transform: translateY(12px);
-    transition: all .45s ease;
-}
-
-.page.active {
-    opacity: 1;
-    transform: translateY(0);
-}
-
-.hidden {
-    display: none;
-}
-
-h1,
-h2 {
-    color: #f4e3c1;
-    margin: 0 0 .75rem;
-}
-
-/* Cards & grid */
-.grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-    gap: 1rem;
-}
-
-.card {
-    background: #2d261f;
-    border-radius: 12px;
-    padding: 1.25rem;
-    box-shadow: 0 8px 18px rgba(0, 0, 0, 0.55);
-    transition: transform .25s ease, box-shadow .25s ease;
-}
-
-.hover-glow:hover {
-    transform: translateY(-6px) scale(1.03);
-    box-shadow: 0 12px 26px rgba(201, 168, 106, .55);
-}
-
-.list {
-    padding: 0;
-    margin: 0;
-    display: grid;
-    gap: .75rem;
-}
-
-/* Calendar (table style like your screenshot) */
-.calendar-wrapper {
-    overflow-x: auto;
-}
-
-.calendar-table {
-    width: 100%;
-    min-width: 680px;
-    border-collapse: collapse;
-    margin-top: .75rem;
-}
-
-.calendar-table th,
-.calendar-table td {
-    border: 1px solid #c9a86a;
-    padding: .85rem .75rem;
-    text-align: center;
-    vertical-align: middle;
-    white-space: nowrap;
-}
-
-.calendar-table th {
-    background: #2d261f;
-    color: #f4e3c1;
-    font-weight: 700;
-}
-
-.calendar-table tr:nth-child(even) {
-    background: rgba(255, 255, 255, 0.04);
-}
-
-.calendar-table tr:hover {
-    background: rgba(201, 168, 106, 0.18);
-    transition: background .25s ease;
-}
-
-/* Responsive navigation */
-@media (max-width: 768px) {
-    .menu-toggle {
-        display: block;
-    }
-
-    .nav-links {
-        display: none;
-        position: absolute;
-        right: 16px;
-        top: 58px;
-        flex-direction: column;
-        background: rgba(45, 38, 31, 0.97);
-        padding: .75rem;
-        border-radius: 10px;
-        box-shadow: 0 10px 22px rgba(0, 0, 0, .5);
-        min-width: 180px;
-    }
-
-    .nav-links.show {
-        display: flex;
-        animation: fadeIn .3s ease both;
-    }
-}
-
-@keyframes fadeIn {
-    from {
-        opacity: 0;
-        transform: translateY(-8px);
-    }
-
-    to {
-        opacity: 1;
-        transform: none;
-    }
-}
-
-#events .list {
-    display: grid;
-    grid-template-columns: repeat(2, minmax(240px, 1fr));
-    gap: 20px;
-    justify-items: center;
-    margin-top: 1rem;
-}
-
-#events .list li {
-    text-align: center;
-}
-
-#events .list img {
-    width: 100%;
-    height: auto;
-    border-radius: 8px; /* 可選：圖片圓角 */
-}
-
-/* 手機版自動改單欄 */
-@media (max-width: 640px) {
-    #events .list {
-        grid-template-columns: 1fr;
-    }
-}
-
-/* ============ 通用自適應樣式 ============ */
-
-/* 1) 讓所有媒體元素隨容器縮放 */
-img, video, canvas, iframe {
-  max-width: 100%;
-  height: auto;
-}
-
-/* 若 HTML 裡寫了 height 屬性，這裡強制改回等比縮放 */
-img[height], video[height] { height: auto !important; }
-
-/* 2) 容器寬度在小螢幕更窄，超大螢幕更寬 */
-.container {
-  max-width: clamp(960px, 92vw, 1200px);
-  padding: clamp(12px, 2vw, 24px);
-}
-
-/* 3) 全站字級用流體排版（會隨螢幕大小調整） */
-html { font-size: 100%; } /* 基準 16px */
-body {
-  font-size: clamp(15px, 1.1vw, 18px);
-  line-height: 1.75;
-}
-
-/* 標題等級（不影響顏色與字型，只調大小） */
-h1 { font-size: clamp(28px, 3.2vw, 44px); line-height: 1.2; }
-h2 { font-size: clamp(22px, 2.2vw, 32px); line-height: 1.25; }
-h3 { font-size: clamp(18px, 1.6vw, 24px); line-height: 1.3; }
-h4, .prof-title, .chip { font-size: clamp(14px, 1.2vw, 16px); }
-
-/* 4) 內文、列表更易讀 */
-p, li, td, th {
-  font-size: clamp(14px, 1.05vw, 18px);
-}
-
-/* 5) 卡片與網格在不同裝置的間距/內距 */
-.card {
-  padding: clamp(14px, 2vw, 22px);
-  border-radius: clamp(10px, 1.2vw, 14px);
-}
-
-.grid {
-  gap: clamp(10px, 2vw, 18px);
-}
-
-/* People 頁的頭像與版面在窄螢幕自動縮 */
-.avatar {
-  width: clamp(100px, 12vw, 140px);
-  height: clamp(100px, 12vw, 140px);
+/* ====================================================================
+   THEME TOKENS
+   ==================================================================== */
+:root{
+  --color-bg: #0b0b0e;
+  --color-surface: #2d261f;
+  --color-text: #e4d9c7;
+  --color-title: #f4e3c1;
+  --color-accent: #c9a86a;
+
+  --radius-sm: 10px;
+  --radius-md: 12px;
+  --radius-lg: 14px;
+
+  --shadow-md: 0 8px 18px rgba(0, 0, 0, 0.55);
+  --shadow-lg: 0 12px 26px rgba(201, 168, 106, .55);
+
+  --container-w: clamp(960px, 92vw, 1200px);
+  --space-1: clamp(8px, 1.2vw, 12px);
+  --space-2: clamp(12px, 1.8vw, 20px);
+  --space-3: clamp(16px, 2.4vw, 28px);
+  --space-4: clamp(20px, 3vw, 36px);
+}
+
+/* ====================================================================
+   RESET / BASE
+   ==================================================================== */
+*{ box-sizing: border-box; }
+html{ font-size: 100%; }
+body{
+  margin:0;
+  font-family:'Cinzel',serif;
+  background:var(--color-bg);
+  color:var(--color-text);
+  line-height:1.75;
+  font-size:clamp(15px,1.1vw,18px);
+  overflow-x:hidden;
+}
+h1,h2,h3,h4{ color:var(--color-title); margin:0 0 .75rem; }
+h1{ font-size:clamp(28px,3.2vw,44px); line-height:1.2; }
+h2{ font-size:clamp(22px,2.2vw,32px); line-height:1.25; }
+h3{ font-size:clamp(18px,1.6vw,24px); line-height:1.3; }
+p, li, td, th{ font-size:clamp(14px,1.05vw,18px); }
+
+.container{
+  max-width:var(--container-w);
+  margin:0 auto;
+  padding:clamp(12px,2vw,24px) clamp(12px,2vw,24px);
+}
+.center{ display:block; margin-left:auto; margin-right:auto; }
+
+/* media fit */
+img, video, canvas, iframe{ max-width:100%; height:auto; }
+img[height], video[height]{ height:auto !important; }
+
+/* ====================================================================
+   STAR CANVAS
+   ==================================================================== */
+#stars{ position:fixed; inset:0; width:100%; height:100%; z-index:-1; }
+
+/* ====================================================================
+   NAVBAR
+   ==================================================================== */
+.navbar{
+  background: rgba(45,38,31,.92);
+  backdrop-filter: blur(2px);
+  padding:.75rem 0;
+  box-shadow:0 4px 10px rgba(0,0,0,.55);
+  position:sticky; top:0; z-index:20;
+  animation: slideDown .6s ease both;
+}
+.nav-container{ display:flex; align-items:center; justify-content:space-between; }
+.logo{
+  font-size:clamp(18px,2.2vw,24px);
+  font-weight:900; color:var(--color-title); letter-spacing:.5px;
+  transition:transform .25s ease;
+}
+.logo:hover{ transform:scale(1.05); }
+.menu-toggle{
+  display:none; font-size:1.6rem; background:none; border:none;
+  color:var(--color-title); cursor:pointer;
+}
+.nav-links{
+  list-style:none; display:flex; gap:clamp(8px,1.4vw,20px);
+  margin:0; padding:0;
+}
+.nav-links li{ cursor:pointer; transition:color .25s ease, transform .25s ease; }
+.nav-links li:hover{ color:var(--color-accent); transform:translateY(-1px); }
+
+@media (max-width: 768px){
+  .menu-toggle{ display:block; }
+  .nav-links{
+    display:none; position:absolute; right:16px; top:58px; flex-direction:column;
+    background: rgba(45,38,31,.97); padding:.75rem; border-radius:10px;
+    box-shadow:0 10px 22px rgba(0,0,0,.5); min-width:180px;
+  }
+  .nav-links.show{ display:flex; animation:fadeIn .3s ease both; }
+}
+
+/* ====================================================================
+   PAGE TRANSITION
+   ==================================================================== */
+.page{ opacity:0; transform:translateY(12px); transition: all .45s ease; }
+.page.active{ opacity:1; transform:translateY(0); }
+.hidden{ display:none; }
+
+@keyframes slideDown{
+  from{ transform:translateY(-100%); opacity:0; }
+  to{ transform:translateY(0); opacity:1; }
+}
+@keyframes fadeIn{
+  from{ opacity:0; transform:translateY(-8px); }
+  to{ opacity:1; transform:none; }
+}
+
+/* ====================================================================
+   HOME
+   ==================================================================== */
+#home h1{ text-align:center; margin-bottom:100px; }
+.home-hero{
+  width:min(100%,1200px);
+  height:auto !important;
+  margin-top:clamp(28px,6vw,100px);
+}
+
+/* ====================================================================
+   RESEARCH
+   ==================================================================== */
+.research-title{ font-size:22px; font-weight:bold; }
+#research ul{ list-style:none; padding:0; margin:0; }
+#research li{ margin-bottom:clamp(24px,4vw,50px); }
+#research h2{ font-size: clamp(20px, 2.4vw, 32px); }
+#research p{ font-size: clamp(16px, 1.3vw, 19px); line-height:1.8; margin-bottom:clamp(12px,2.4vw,16px); }
+
+/* 圖片縮小且自適應（等比） */
+.research-img{
+  width: clamp(160px, 36vw, 280px);
+  height:auto !important;
+  display:block;
+  margin:0 auto;
+}
+
+/* ====================================================================
+   PEOPLE
+   ==================================================================== */
+.profile{
+  display:grid; grid-template-columns:140px 1fr; gap:1rem; align-items:start;
+  background:var(--color-surface); border-radius:var(--radius-lg);
+  padding:1rem; box-shadow:var(--shadow-md); margin-bottom:1rem;
+}
+.avatar{
+  width: clamp(100px,12vw,140px);
+  height: clamp(100px,12vw,140px);
   border-radius: clamp(10px, 1.2vw, 16px);
+  object-fit:cover; background:rgba(255,255,255,.06);
+  border:1px solid rgba(201,168,106,.35);
+}
+.profile-body .prof-name{ margin:0; font-size:1.6rem; }
+.profile-body .prof-title{ margin:.1rem 0 .6rem; color:var(--color-accent); font-size:clamp(14px,1.2vw,16px); }
+.contact-grid{ display:grid; grid-template-columns:repeat(auto-fit,minmax(220px,1fr)); gap:.4rem .8rem; }
+.chips{ display:flex; flex-wrap:wrap; gap:.5rem; margin-top:.6rem; }
+.chip{
+  background:rgba(201,168,106,.12); border:1px solid rgba(201,168,106,.35);
+  padding:.22rem .6rem; border-radius:999px; font-size:clamp(14px,1.2vw,16px);
 }
 
-/* Navbar 標誌與連結大小跟著調整 */
-.logo { font-size: clamp(18px, 2.2vw, 24px); }
-.nav-links { gap: clamp(8px, 1.4vw, 20px); }
-.nav-links li { font-size: clamp(14px, 1.2vw, 16px); }
+.sections details{
+  background:rgba(255,255,255,.03); border:1px solid rgba(201,168,106,.3);
+  border-radius:12px; padding:.6rem .9rem; margin-bottom:.7rem;
+}
+.sections summary{ cursor:pointer; font-weight:700; color:var(--color-title); }
+.clean-list{ list-style:none; margin:.4rem 0 0; padding:0; }
+.clean-list li{ padding:.25rem 0; }
+.pub-list{ margin:.4rem 0 0 1.2rem; }
 
-/* 6) Research 區塊（你已經有 clamp，這裡補強間距在小螢幕更緊湊） */
-#research li { margin-bottom: clamp(24px, 4vw, 50px); }
-#research p  { margin-bottom: clamp(12px, 2.4vw, 16px); }
-#research img {
-  width: clamp(160px, 36vw, 280px);  /* 小螢幕不會太小，大螢幕最多 280px */
-  height: auto !important;           /* 等比縮放，覆蓋掉 HTML 的 height 屬性 */
-  display: block;
-  margin: 0 auto;                    /* 置中 */
+.students h3{ margin-top:1rem; }
+.grid{ display:grid; grid-template-columns:repeat(auto-fit,minmax(220px,1fr)); gap:1rem; }
+.grid.two-col{ grid-template-columns:repeat(auto-fit,minmax(240px,1fr)); }
+.bullets{ list-style:disc; margin-left:1.2rem; }
+
+#people a{ color:var(--color-accent); text-decoration:none; }
+#people a:hover{ color:var(--color-title); text-decoration:underline; }
+
+@media (max-width:640px){
+  .profile{ grid-template-columns:1fr; }
 }
 
-/* 7) Events 圖片左右排版（你已有 Grid；這裡補充更彈性） */
-#events .list {
-  grid-template-columns: repeat(2, minmax(220px, 1fr));
-  gap: clamp(12px, 2vw, 20px);
+/* ====================================================================
+   CARDS
+   ==================================================================== */
+.card{
+  background:var(--color-surface);
+  border-radius:var(--radius-md);
+  padding:clamp(14px,2vw,22px);
+  box-shadow:var(--shadow-md);
+  transition: transform .25s ease, box-shadow .25s ease;
 }
-#events .list img {
-  border-radius: clamp(6px, 1vw, 10px);
+.hover-glow:hover{
+  transform: translateY(-6px) scale(1.03);
+  box-shadow: var(--shadow-lg);
 }
+.list{ padding:0; margin:0; display:grid; gap:.75rem; }
 
-/* 8) 表格自適應（行高、字級、內距會縮放；小螢幕可換行） */
-.calendar-wrapper {
-  overflow-x: auto;
-  -webkit-overflow-scrolling: touch;
+/* ====================================================================
+   EVENTS
+   ==================================================================== */
+#events .list{
+  display:grid;
+  grid-template-columns:repeat(2,minmax(240px,1fr));
+  gap:clamp(12px,2vw,20px);
+  justify-items:center;
+  margin-top:1rem;
 }
-
-.calendar-table {
-  width: 100%;
-  border-collapse: collapse;
-  font-size: clamp(13px, 1vw, 16px);
+#events .list li{ text-align:center; }
+#events .list img{
+  width:100%; height:auto; border-radius: clamp(6px, 1vw, 10px);
 }
-
-.calendar-table th,
-.calendar-table td {
-  padding: clamp(8px, 1.2vw, 14px);
-  white-space: normal;         /* 允許換行，避免太擠 */
-  word-break: break-word;
-}
-
-/* 9) 首頁大圖：用寬度控制，避免固定 height 造成變形 */
-#home img {
-  width: min(100%, 1200px);    /* 大螢幕不會超出容器 */
-  height: auto !important;
-  margin-top: clamp(28px, 6vw, 100px);
-}
-
-/* 10) 小螢幕強化：把雙欄改單欄、減少擁擠 */
-@media (max-width: 768px) {
-  /* Events 兩張圖疊成單欄（你已有 640px 斷點，這裡再加一層） */
-  #events .list { grid-template-columns: 1fr; }
-
-  /* People 區塊已改成單欄，這裡確保文字不擠 */
-  .profile { gap: clamp(10px, 3vw, 16px); }
-
-  /* 表格在手機上字再小一點、行距更緊 */
-  .calendar-table { font-size: clamp(12px, 1.6vw, 14px); }
-  .calendar-table th, .calendar-table td { padding: clamp(6px, 1.6vw, 10px); }
+@media (max-width:768px){
+  #events .list{ grid-template-columns:1fr; }
 }
 
-/* 11) 超大螢幕微調：增加容器寬、字級稍放大但不爆字 */
-@media (min-width: 1600px) {
-  .container { max-width: 1280px; }
-  body { font-size: clamp(16px, 1vw, 19px); }
+/* ====================================================================
+   CALENDAR
+   ==================================================================== */
+.calendar-wrapper{ overflow-x:auto; -webkit-overflow-scrolling:touch; }
+.calendar-table{
+  width:100%; min-width:680px; border-collapse:collapse; margin-top:.75rem;
+  font-size:clamp(13px,1vw,16px);
 }
+.calendar-table th, .calendar-table td{
+  border:1px solid var(--color-accent);
+  padding:clamp(8px,1.2vw,14px);
+  text-align:center; vertical-align:middle;
+  white-space:nowrap;
+}
+.calendar-table th{
+  background:var(--color-surface); color:var(--color-title); font-weight:700;
+}
+.calendar-table tr:nth-child(even){ background:rgba(255,255,255,.04); }
+.calendar-table tr:hover{ background:rgba(201,168,106,.18); transition:background .25s ease; }
 
-/* 12) 針對 iframe（Google Map）高度在小螢幕自動縮 */
-#contact iframe {
-  width: 100% !important;
+/* ====================================================================
+   CONTACT / MAP
+   ==================================================================== */
+#contact .map{
+  width:100% !important;
   height: clamp(280px, 50vw, 800px) !important;
-  border: 0;
+  border:0;
 }
 
-
-
-
-
-
-
-
+/* ====================================================================
+   LARGE / SMALL SCREENS TWEAKS
+   ==================================================================== */
+@media (max-width:768px){
+  .profile{ gap:clamp(10px,3vw,16px); }
+  .calendar-table{ font-size:clamp(12px,1.6vw,14px); }
+  .calendar-table th, .calendar-table td{ padding:clamp(6px,1.6vw,10px); }
+}
+@media (min-width:1600px){
+  .container{ max-width:1280px; }
+  body{ font-size: clamp(16px, 1vw, 19px); }
+}
