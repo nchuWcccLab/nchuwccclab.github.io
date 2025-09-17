@@ -140,9 +140,6 @@ img[height], video[height]{ height:auto !important; }
   display: block;
   margin: var(--space-2) auto 0;
 }
-@media (min-width: 1600px){
-  .research-img{ width: clamp(260px, 40vw, 1200px); }
-}
 
 /* ====================================================================
    PEOPLE
@@ -274,6 +271,7 @@ img[height], video[height]{ height:auto !important; }
   .container{ max-width:1280px; }
   body{ font-size: clamp(16px, 1vw, 19px); }
 }
+
 
 
 
