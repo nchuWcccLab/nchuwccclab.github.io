@@ -376,7 +376,31 @@ h2 {
         opacity: 1;
         transform: none;
     }
+}
 
+#events .list {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(240px, 1fr));
+    gap: 20px;
+    justify-items: center;
+    margin-top: 1rem;
+}
+
+#events .list li {
+    text-align: center;
+}
+
+#events .list img {
+    width: 100%;
+    height: auto;
+    border-radius: 8px; /* 可選：圖片圓角 */
+}
+
+/* 手機版自動改單欄 */
+@media (max-width: 640px) {
+    #events .list {
+        grid-template-columns: 1fr;
+    }
 }
 
 
