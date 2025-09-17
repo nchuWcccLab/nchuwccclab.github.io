@@ -403,7 +403,7 @@ h2 {
     }
 }
 
-/* ============ 通用自適應樣式（貼在 styles.css 最後） ============ */
+/* ============ 通用自適應樣式 ============ */
 
 /* 1) 讓所有媒體元素隨容器縮放 */
 img, video, canvas, iframe {
@@ -463,6 +463,12 @@ p, li, td, th {
 /* 6) Research 區塊（你已經有 clamp，這裡補強間距在小螢幕更緊湊） */
 #research li { margin-bottom: clamp(24px, 4vw, 50px); }
 #research p  { margin-bottom: clamp(12px, 2.4vw, 16px); }
+#research img {
+  width: clamp(160px, 36vw, 240px);  /* 小螢幕不會太小，大螢幕最多 280px */
+  height: auto !important;           /* 等比縮放，覆蓋掉 HTML 的 height 屬性 */
+  display: block;
+  margin: 0 auto;                    /* 置中 */
+}
 
 /* 7) Events 圖片左右排版（你已有 Grid；這裡補充更彈性） */
 #events .list {
@@ -524,6 +530,7 @@ p, li, td, th {
   height: clamp(280px, 50vw, 520px) !important;
   border: 0;
 }
+
 
 
 
