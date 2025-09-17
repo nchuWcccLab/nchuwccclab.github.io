@@ -132,14 +132,13 @@ img[height], video[height]{ height:auto !important; }
 #research h2{ font-size: clamp(20px, 2.4vw, 32px); }
 #research p{ font-size: clamp(16px, 1.3vw, 19px); line-height:1.8; margin-bottom:clamp(12px,2.4vw,16px); }
 
-/* 圖片縮小且自適應（等比） */
+/* 圖片自適應（等比） */
 .research-img{
-  /* 手機不少於 220px；一般以 52vw 為目標；桌機最多 640px */
-  width: clamp(300px, 52vw, 1000px);
+  width: 90%;
   max-width: 100%;
   height: auto !important;
   display: block;
-  margin: clamp(8px, 1.6vw, 16px) auto 0; /* 上方些許間距並置中 */
+  margin: var(--space-2) auto 0;
 }
 @media (min-width: 1600px){
   .research-img{ width: clamp(260px, 40vw, 1200px); }
@@ -275,5 +274,6 @@ img[height], video[height]{ height:auto !important; }
   .container{ max-width:1280px; }
   body{ font-size: clamp(16px, 1vw, 19px); }
 }
+
 
 
