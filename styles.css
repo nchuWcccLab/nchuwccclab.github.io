@@ -129,7 +129,9 @@ img[height], video[height]{ height:auto !important; }
 .research-title{ font-size:22px; font-weight:bold; }
 #research ul{ list-style:none; padding:0; margin:0; }
 #research li{ margin-bottom:clamp(24px,4vw,50px); }
-#research h2{ font-size: clamp(20px, 2.4vw, 32px); }
+#research h2{ font-size: clamp(20px, 2.4vw, 32px); 
+              margin-bottom: var(--space-3);
+            }
 #research p{ font-size: clamp(16px, 1.3vw, 19px); line-height:1.8; margin-bottom:clamp(12px,2.4vw,16px); }
 
 /* 圖片自適應（等比） */
@@ -271,6 +273,7 @@ img[height], video[height]{ height:auto !important; }
   .container{ max-width:1280px; }
   body{ font-size: clamp(16px, 1vw, 19px); }
 }
+
 
 
 
