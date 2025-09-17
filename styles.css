@@ -527,9 +527,10 @@ p, li, td, th {
 /* 12) 針對 iframe（Google Map）高度在小螢幕自動縮 */
 #contact iframe {
   width: 100% !important;
-  height: clamp(280px, 50vw, 520px) !important;
+  height: clamp(280px, 50vw, 800px) !important;
   border: 0;
 }
+
 
 
 
