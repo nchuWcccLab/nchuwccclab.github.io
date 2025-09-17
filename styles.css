@@ -403,6 +403,128 @@ h2 {
     }
 }
 
+/* ============ 通用自適應樣式（貼在 styles.css 最後） ============ */
+
+/* 1) 讓所有媒體元素隨容器縮放 */
+img, video, canvas, iframe {
+  max-width: 100%;
+  height: auto;
+}
+
+/* 若 HTML 裡寫了 height 屬性，這裡強制改回等比縮放 */
+img[height], video[height] { height: auto !important; }
+
+/* 2) 容器寬度在小螢幕更窄，超大螢幕更寬 */
+.container {
+  max-width: clamp(960px, 92vw, 1200px);
+  padding: clamp(12px, 2vw, 24px);
+}
+
+/* 3) 全站字級用流體排版（會隨螢幕大小調整） */
+html { font-size: 100%; } /* 基準 16px */
+body {
+  font-size: clamp(15px, 1.1vw, 18px);
+  line-height: 1.75;
+}
+
+/* 標題等級（不影響顏色與字型，只調大小） */
+h1 { font-size: clamp(28px, 3.2vw, 44px); line-height: 1.2; }
+h2 { font-size: clamp(22px, 2.2vw, 32px); line-height: 1.25; }
+h3 { font-size: clamp(18px, 1.6vw, 24px); line-height: 1.3; }
+h4, .prof-title, .chip { font-size: clamp(14px, 1.2vw, 16px); }
+
+/* 4) 內文、列表更易讀 */
+p, li, td, th {
+  font-size: clamp(14px, 1.05vw, 18px);
+}
+
+/* 5) 卡片與網格在不同裝置的間距/內距 */
+.card {
+  padding: clamp(14px, 2vw, 22px);
+  border-radius: clamp(10px, 1.2vw, 14px);
+}
+
+.grid {
+  gap: clamp(10px, 2vw, 18px);
+}
+
+/* People 頁的頭像與版面在窄螢幕自動縮 */
+.avatar {
+  width: clamp(100px, 12vw, 140px);
+  height: clamp(100px, 12vw, 140px);
+  border-radius: clamp(10px, 1.2vw, 16px);
+}
+
+/* Navbar 標誌與連結大小跟著調整 */
+.logo { font-size: clamp(18px, 2.2vw, 24px); }
+.nav-links { gap: clamp(8px, 1.4vw, 20px); }
+.nav-links li { font-size: clamp(14px, 1.2vw, 16px); }
+
+/* 6) Research 區塊（你已經有 clamp，這裡補強間距在小螢幕更緊湊） */
+#research li { margin-bottom: clamp(24px, 4vw, 50px); }
+#research p  { margin-bottom: clamp(12px, 2.4vw, 16px); }
+
+/* 7) Events 圖片左右排版（你已有 Grid；這裡補充更彈性） */
+#events .list {
+  grid-template-columns: repeat(2, minmax(220px, 1fr));
+  gap: clamp(12px, 2vw, 20px);
+}
+#events .list img {
+  border-radius: clamp(6px, 1vw, 10px);
+}
+
+/* 8) 表格自適應（行高、字級、內距會縮放；小螢幕可換行） */
+.calendar-wrapper {
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+}
+
+.calendar-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: clamp(13px, 1vw, 16px);
+}
+
+.calendar-table th,
+.calendar-table td {
+  padding: clamp(8px, 1.2vw, 14px);
+  white-space: normal;         /* 允許換行，避免太擠 */
+  word-break: break-word;
+}
+
+/* 9) 首頁大圖：用寬度控制，避免固定 height 造成變形 */
+#home img {
+  width: min(100%, 1200px);    /* 大螢幕不會超出容器 */
+  height: auto !important;
+  margin-top: clamp(28px, 6vw, 100px);
+}
+
+/* 10) 小螢幕強化：把雙欄改單欄、減少擁擠 */
+@media (max-width: 768px) {
+  /* Events 兩張圖疊成單欄（你已有 640px 斷點，這裡再加一層） */
+  #events .list { grid-template-columns: 1fr; }
+
+  /* People 區塊已改成單欄，這裡確保文字不擠 */
+  .profile { gap: clamp(10px, 3vw, 16px); }
+
+  /* 表格在手機上字再小一點、行距更緊 */
+  .calendar-table { font-size: clamp(12px, 1.6vw, 14px); }
+  .calendar-table th, .calendar-table td { padding: clamp(6px, 1.6vw, 10px); }
+}
+
+/* 11) 超大螢幕微調：增加容器寬、字級稍放大但不爆字 */
+@media (min-width: 1600px) {
+  .container { max-width: 1280px; }
+  body { font-size: clamp(16px, 1vw, 19px); }
+}
+
+/* 12) 針對 iframe（Google Map）高度在小螢幕自動縮 */
+#contact iframe {
+  width: 100% !important;
+  height: clamp(280px, 50vw, 520px) !important;
+  border: 0;
+}
+
 
 
 
