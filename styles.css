@@ -51,11 +51,6 @@ body {
     line-height: 1.8;
 }
 
-#research img {
-    display: block;
-    margin: 0 auto;        /* 置中 */
-}
-
 
 /* Star canvas behind everything */
 #stars {
@@ -464,7 +459,7 @@ p, li, td, th {
 #research li { margin-bottom: clamp(24px, 4vw, 50px); }
 #research p  { margin-bottom: clamp(12px, 2.4vw, 16px); }
 #research img {
-  width: clamp(160px, 36vw, 240px);  /* 小螢幕不會太小，大螢幕最多 280px */
+  width: clamp(160px, 36vw, 280px);  /* 小螢幕不會太小，大螢幕最多 280px */
   height: auto !important;           /* 等比縮放，覆蓋掉 HTML 的 height 屬性 */
   display: block;
   margin: 0 auto;                    /* 置中 */
@@ -530,6 +525,7 @@ p, li, td, th {
   height: clamp(280px, 50vw, 800px) !important;
   border: 0;
 }
+
 
 
 
