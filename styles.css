@@ -4,12 +4,12 @@
 }
 
 #home h1 {
-    margin-bottom: 50px;
+    margin-bottom: 100px;
     text-align: center;
 }
 
 #home img {
-    margin-top: 50px;  /* 圖片與上方元素間距 */
+    margin-top: 100px;  /* 圖片與上方元素間距 */
 }
 
 body {
@@ -359,3 +359,4 @@ h2 {
     }
 
 }
+
