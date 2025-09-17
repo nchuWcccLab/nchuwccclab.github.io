@@ -134,10 +134,15 @@ img[height], video[height]{ height:auto !important; }
 
 /* 圖片縮小且自適應（等比） */
 .research-img{
-  width: clamp(160px, 36vw, 280px);
-  height:auto !important;
-  display:block;
-  margin:0 auto;
+  /* 手機不少於 220px；一般以 52vw 為目標；桌機最多 640px */
+  width: clamp(220px, 52vw, 640px);
+  max-width: 100%;
+  height: auto !important;
+  display: block;
+  margin: clamp(8px, 1.6vw, 16px) auto 0; /* 上方些許間距並置中 */
+}
+@media (min-width: 1600px){
+  .research-img{ width: clamp(260px, 40vw, 720px); }
 }
 
 /* ====================================================================
@@ -244,8 +249,18 @@ img[height], video[height]{ height:auto !important; }
    ==================================================================== */
 #contact .map{
   width:100% !important;
-  height: clamp(280px, 50vw, 800px) !important;
-  border:0;
+  max-width: 100%;
+  aspect-ratio: 16 / 9;
+  height: auto !important;
+  border: 0;
+  display: block;
+  margin: 0 auto;
+}
+/* 舊瀏覽器 fallback：改用視窗高推估 */
+@supports not (aspect-ratio: 1 / 1){
+  #contact .map{
+    height: clamp(300px, 60vh, 800px) !important;
+  }
 }
 
 /* ====================================================================
@@ -260,3 +275,4 @@ img[height], video[height]{ height:auto !important; }
   .container{ max-width:1280px; }
   body{ font-size: clamp(16px, 1vw, 19px); }
 }
+
