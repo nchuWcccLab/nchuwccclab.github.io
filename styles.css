@@ -117,12 +117,12 @@ img[height], video[height]{ height:auto !important; }
    HOME
    ==================================================================== */
 #home h1{ 
-   text-align:center; margin-bottom:100px;
+   text-align:center; margin-bottom:50px;
 }
 .home-hero{
   width:min(100%,1200px);
   height:auto !important;
-  margin-top:clamp(20px,5vw,80px);
+  margin-top:clamp(15px,5vw,50px);
 }
 
 /* ====================================================================
@@ -276,6 +276,7 @@ img[height], video[height]{ height:auto !important; }
   .container{ max-width:1280px; }
   body{ font-size: clamp(16px, 1vw, 19px); }
 }
+
 
 
 
